@@ -44,7 +44,7 @@ reportlab==3.3.0
 requests==2.9.1
 screen-resolution-extra==0.0.0
 sessioninstaller==0.0.0
-six==1.10.0
+six==1.12.0
 SQLAlchemy==1.2.16
 ssh-import-id==5.5
 system-service==0.3
