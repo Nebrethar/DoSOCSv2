@@ -46,7 +46,7 @@ screen-resolution-extra==0.0.0
 sessioninstaller==0.0.0
 six==1.10.0
 SQLAlchemy==1.2.16
-ssh-import-id==5.5
+ssh-import-id==5.6
 system-service==0.3
 ubuntu-drivers-common==0.0.0
 ufw==0.35
