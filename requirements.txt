@@ -68,4 +68,4 @@ urllib3==1.13.1
 usb-creator==0.3.0
 xdiagnose==3.8.4.1
 xkit==0.0.0
-XlsxWriter==0.7.3
+XlsxWriter==1.1.2
