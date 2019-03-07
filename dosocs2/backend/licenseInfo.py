@@ -19,8 +19,8 @@ def retrieve_license_information(owner, repo):
     pope = subprocess.Popen(['sudo', 'dosocs2', 'oneshot', cwd + '/repodl/' + repo], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     subprocess.call(['sudo', 'dosocs2', 'oneshot', cwd + '/repodl/' + repo], shell=False, stdout=temp)
     out, err = pope.communicate()
-    if out:
-        print(out)
+    #if out:
+    #    print(out)
     if err:
          print(err.decode('UTF-8'))
 
