@@ -34,7 +34,7 @@ def retrieve_license_information(owner, repo):
         if ":" in value:
             valSplit = value.split(":")
             print(valSplit)
-            temp[str(j) + " " + valSplit[0]] = valSplit[1]
+            temp[str(j) + " " + valSplit[0]] = valSplit[1].split(" ")[1]
             j += 1
         if "#" in value:
             if bool(temp) != 0:

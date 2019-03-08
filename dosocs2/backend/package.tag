@@ -18,12 +18,36 @@ along with dosocs2.  If not, see <http://www.gnu.org/licenses/>.
 
 SPDX-License-Identifier: GPL-2.0+
 #}
+
 SPDXVersion: {{ document.spdx_version }}
 DataLicense: {{ document.data_license }}
 DocumentNamespace: {{ document.uri }}
 DocumentName: {{ document.name }}
 SPDXID: {{ document.id_string }}
 DocumentComment: {{ document.document_comment | text }}
+
+
+## Creation Information
+{% for creator in document.creators %}
+Creator: {{ creator.creator }}
+{% endfor %}
+Created: {{ document.created_ts | utctimestamp }}
+CreatorComment: {{ document.creator_comment | text }}
+LicenseListVersion: {{ document.license_list_version }}
+
+
+## Document Annotations
+{% for annotation in document.annotations %}
+Annotator: {{ annotation.creator }}
+AnnotationDate: {{ annotation.created_ts | utctimestamp }}
+AnnotationComment: {{ annotation.comment | text }}
+AnnotationType: {{ annotation.type }}
+SPDXID: {{ annotation.id_string }}
+{% endfor %}
+
+
+## Package Information
+
 PackageName: {{ package.name }}
 SPDXID: {{ package.id_string }}
 {% if package.version %}
@@ -48,6 +72,30 @@ PackageCopyrightText: {{ package.copyright_text | text_default }}
 PackageSummary: {{ package.summary | text }}
 PackageDescription: {{ package.description | text }}
 PackageComment: {{ package.comment | text }}
+
 {% for li in package.license_info_from_files %}
 PackageLicenseInfoFromFiles: {{ li.license_short_name }}
+{% endfor %}
+
+
+{% if package.annotations %}
+## Annotations
+{% for annotation in package.annotations %}
+Annotator: {{ annotation.creator }}
+AnnotationDate: {{ annotation.created_ts }}
+AnnotationComment: {{ annotation.comment | text }}
+AnnotationType: {{ annotation.type }}
+SPDXID: {{ annotation.id_string }}
+{% endfor %}
+{% endif %}
+
+
+## License Information
+{% for license in licenses %}
+
+LicenseID: {{ license.id_string }}
+LicenseName: {{ license.name }}
+ExtractedText: {{ license.extracted_text }}
+LicenseCrossReference: {{ license.cross_reference }}
+LicenseComment: {{ license.comment | text }}
 {% endfor %}
